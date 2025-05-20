@@ -1,4 +1,5 @@
-package kz.kenzhakhimov.transactionmicroservice.entities;
+package kz.kenzhakhimov.statementmicroservice.entities;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,16 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name="users")
+@Table(name="transactions")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private int balance;
+    private String category;
+    private int amount;
+    private LocalDateTime date;
 }
