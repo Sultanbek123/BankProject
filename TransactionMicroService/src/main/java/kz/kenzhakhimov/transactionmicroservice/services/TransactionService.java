@@ -20,7 +20,7 @@ public class TransactionService {
     @Transactional
     public Transaction addTransaction(Transaction transaction){
         transaction.setDate(LocalDateTime.now());
-        rabbitTemplate.convertAndSend("myExchange", "k8sc", transaction);
+        rabbitTemplate.convertAndSend("massExchange", "", transaction);
         Transaction resp = transactionRepository.save(transaction);
         log.info("сообщение было доставлено в очередь");
         return resp;
