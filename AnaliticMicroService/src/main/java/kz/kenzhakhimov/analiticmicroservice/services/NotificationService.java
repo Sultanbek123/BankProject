@@ -1,22 +1,20 @@
-package kz.kenzhakhimov.statementmicroservice.services;
+package kz.kenzhakhimov.analiticmicroservice.services;
 
-import jakarta.persistence.Entity;
-import kz.kenzhakhimov.statementmicroservice.entities.Transaction;
-import kz.kenzhakhimov.statementmicroservice.repositories.TransactionRepository;
+import kz.kenzhakhimov.analiticmicroservice.entities.Transaction;
+import kz.kenzhakhimov.analiticmicroservice.repositories.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class NotificationService {
     private final TransactionRepository transactionRepository;
-    @RabbitListener(queues = "statementQueue")
+    @RabbitListener(queues = "analiticQueue")
     public void getNotification(Transaction transaction){
         transactionRepository.save(transaction);
-        log.info("Message has been extracted from StatementQueue" + transaction);
+        log.info("Message has been extracted from AnaliticQueue" + transaction);
     }
 }

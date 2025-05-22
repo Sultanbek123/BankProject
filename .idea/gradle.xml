@@ -4,6 +4,14 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/AnaliticMicroService" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/AnaliticMicroService" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/StatementMicroService" />
         <option name="modules">
           <set>
